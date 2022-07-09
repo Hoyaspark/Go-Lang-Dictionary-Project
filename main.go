@@ -10,14 +10,14 @@ func main() {
 	dictionary := dict.Dictionary{}
 
 	word := "hello"
-	definition := "Greeting"
 
-	err := dictionary.Add(word, definition)
+	dictionary.Add(word, "First")
+	err := dictionary.Update(word, "Second")
+	dictionary.Delete(word)
 
 	if err != nil {
 		log.Fatalln(err)
 	}
-
 	def, sErr := dictionary.Search(word)
 
 	if sErr != nil {
@@ -25,11 +25,4 @@ func main() {
 	}
 
 	fmt.Println(def)
-
-	addErr := dictionary.Add(word, definition)
-
-	if addErr != nil {
-		log.Fatalln(addErr)
-	}
-
 }
